@@ -1,0 +1,46 @@
+<div class="col col-md-10 my-5" *ngIf="studentForm != null">
+  <form [formGroup]="studentForm" (ngSubmit)="saveStudent()" #from="ngForm">
+    <div class="row">
+      <div class="col-4 mb-3">
+        <label class="form-label">First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" ngClass="{ 'invalid-feedback': from.submitted && f.firstName.errors }" required >
+        <div *ngIf="from.submitted && f.firstName.errors">
+          <p class="text-danger" *ngIf="f.firstName.errors.required" >first name is require!</p>
+          <p class="text-danger" *ngIf="f.firstName.errors.minlength">enter 5 or more character!</p>
+        </div>
+      </div>
+      <div class="col-4 mb-3 ">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" required>
+        <div *ngIf="from.submitted && f.lastName.errors">
+          <p class="text-danger" *ngIf="f.lastName.errors.required" >last name is require!</p>
+          <p class="text-danger" *ngIf="f.lastName.errors.minlength">enter 5 or more character!</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 mb-3">
+        <label class="form-label">Tel no</label>
+        <input type="text" class="form-control"  formControlName="tel">
+        <div *ngIf="from.submitted && f.tel.errors">
+          <p class="text-danger" *ngIf="f.tel.errors.required" >mobile number is require!</p>
+          <p class="text-danger" *ngIf="f.tel.errors.minlength">enter 10 character!</p>
+          <p class="text-danger" *ngIf="f.tel.errors.maxlength">enter 10 character!</p>
+        </div>
+      </div>
+      <div class="col-2 mb-3">
+        <label class="form-label">Age</label>
+        <input type="number" class="form-control"  formControlName="age">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 mb-3">
+        <div class="form-floating">
+          <textarea class="form-control" formControlName="address" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+          <label for="floatingTextarea2" >Address</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

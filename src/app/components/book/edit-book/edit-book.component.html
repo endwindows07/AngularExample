@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="colr col-10">
+    <h3>เพิ่มรายการหนังสือ</h3>
+    <div>
+      <div>
+        <div *ngIf="imageUrl == null; then defualtImageTemplate else imageUrlTemplate"></div>
+        <div class="form-group">
+          <div class="col-sm-10 my-2">
+            <input type="file" class="btn form-control-file" id="exampleFormControlFile1" (change)="onChange($event)">
+          </div>
+        </div>
+      </div>
+      <form *ngIf="bookForm != null" class="form-horizontal"  style="margin-top: 20px;" action="/action_page.php" [formGroup]='bookForm' (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="form-group">
+          <label class="control-label col-sm-2">Title:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Enter name" formControlName='name'>
+            <div *ngIf="form.submitted && f != null && f.name.errors">
+              <p *ngIf="form.submitted && f.name.errors.required" class="text-danger">name is required!</p>
+              <p *ngIf="form.submitted && f.name.errors.minlength" class="text-danger">enter 5 or more charater!</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" >
+          <label class="control-label col-sm-2" for="pwd">Desciptions:</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 100px;"
+              formControlName='description'></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">author:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Enter details" formControlName='author'>
+            <div *ngIf="form.submitted && f != null && f.author.errors">
+              <p *ngIf="form.submitted && f.author.errors.required" class="text-danger">author is required!</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Prices:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Enter prices" formControlName='price'>
+            <div *ngIf="form.submitted && f != null && f.price.errors">
+              <p *ngIf="form.submitted && f.price.errors.required" class="text-danger">price is required!</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Discount:</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Enter prices" formControlName='discount'>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Count: </label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Enter prices" formControlName='count'>
+            <div *ngIf="form.submitted && f != null && f.count.errors">
+              <p *ngIf="form.submitted && f.count.errors.required" class="text-danger">count is required!</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">In stock: </label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" placeholder="Enter prices" formControlName='inStock'>
+            <div *ngIf="form.submitted && f != null && f.inStock.errors">
+              <p *ngIf="form.submitted && f.inStock.errors.required" class="text-danger">inStock is required!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group my-5">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">เพิ่ม</button>
+            <button type="button" class="btn btn-outline-secondary mx-3" (click)="onCancel()">ยกเลิก</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <ng-template #defualtImageTemplate>
+      <img src="https://climate.onep.go.th/wp-content/uploads/2020/01/default-image.png" alt="" height="500">
+    </ng-template>
+    <ng-template #imageUrlTemplate>
+      <img [src]="imageUrl" alt="" height="500">
+    </ng-template>
+  </div>

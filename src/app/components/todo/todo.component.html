@@ -1,0 +1,52 @@
+<!--
+<div class="container my-5">
+  <div class="row">
+    <div>
+      <input type="text" class="col" #todoInput>
+      <button class="col btn btn-sm btn-outline-info center" (click)="onAddTodo(todoInput)">Add</button>
+    </div>
+  </div>
+  <div *ngIf="todos != null">
+    <div *ngFor="let todo of todos">
+      <div class="row">
+        <div class="col col-1">
+          <p>{{todo.id}}</p>
+        </div>
+        <div class="col col-2">
+          <p>{{todo.title}}</p>
+        </div>
+        <div class="col col-2">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="todo.completed" (ngModelChange)="onUpdateStatus(todo)" id="flexCheckDefault">
+          <button class="btn btn-sm" (click)="onRemove(todo)">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="full-height" style="background-color: gray; padding-top: 15%;">
+  <div class="d-flex justify-content-center">
+    <div class="wrapper">
+      <header>Todo App</header>
+      <div class="inputField">
+        <input type="text" placeholder="Add your new todo" #todoInput>
+        <button  (click)="onAddTodo(todoInput)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg></button>
+
+      </div>
+      <ul class="todoList" *ngFor="let todo of todos">
+        <li>
+          <div class="col row">
+            <p  class="col-10" [ngClass]="{'text-decoration-line-through': todo.completed == true}"><b>{{todo.id}}. </b> {{todo.title}}</p>
+            <input class="col-1 secondary form-check-input my-1" type="checkbox" [(ngModel)]="todo.completed" (ngModelChange)="onUpdateStatus(todo)" id="flexCheckDefault">
+            <button class="col-1 btn btn-sm" (click)="onRemove(todo)">X</button>
+          </div>
+        </li>
+      </ul>
+      <div class="footer">
+        <span>You have <span class="pendingTasks"></span> pending {{countRestoFTask}} tasks</span>
+      </div>
+    </div>
+  </div>
+</div>

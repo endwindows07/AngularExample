@@ -1,0 +1,68 @@
+<div>
+  <div>
+    <b>One Way binding</b>
+    <p>{{titile}}</p>
+  </div>
+  <hr class="my-2"/>
+  <div>
+    <b>Two Way binding</b>
+    <p>{{description}}</p>
+    <input type="text" [(ngModel)]="description" />
+  </div>
+  <hr class="my-2"/>
+  <div>
+    <b>Event click</b>
+    <p>{{nickName}}</p>
+    <input type="text" #nickNameInput />
+    <button (click)="Save(nickNameInput.value)">Save</button>
+  </div>
+  <hr class="my-2"/>
+  <div>
+    <b>Event Enter</b>
+    <p>{{address}}</p>
+    <input type="text" #addressInput (keyup.enter)="onEnter(addressInput.value)" />
+  </div>
+  <hr class="my-2"/>
+  <div>
+    <b>Event KeyUp</b>
+    <p>{{tel}}</p>
+    <input type="text" #telInput (keyup)="onKeyUp(telInput.value)" />
+  </div>
+</div>
+<hr class="my-2"/>
+<div>
+  <b>Loop</b>
+  <div *ngIf="studentNames.length > 0;  else studentIsNullTemplate then studentShowupTemplate">
+    <div *ngFor="let name of studentNames">
+      <p>{{name}}</p>
+      <button (click)="onRemoveStudent(name)">X</button>
+    </div>
+
+  </div>
+  <div>
+    <input type="text" #studentInput (keyup.enter)="onAddStudent(studentInput)" />
+  </div>
+</div>
+
+<ng-template #studentIsNullTemplate>
+  <div>
+    <p>Student is empty</p>
+  </div>
+</ng-template>
+
+<ng-template #studentShowupTemplate>
+  <div>
+    <div *ngIf="studentNames.length == 1">
+      <p>First student just showup!</p>
+    </div>
+
+    <div *ngFor="let name of studentNames" class="col">
+      <div class="row my-1" >
+        <p class="col col-2">{{name}}</p>
+        <div class="col">
+          <button (click)="onRemoveStudent(name)" class="btn btn-outline-danger btn-sm">X</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

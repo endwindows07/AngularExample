@@ -1,0 +1,46 @@
+<!-- <div class="container">
+  <h3>รายการหนังสือ</h3>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Prices</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of books">
+        <th scope="row">{{item.id}}</th>
+        <img src="{{item.imageUrl}}"  class="img-responsive" alt="Responsive image"
+         height="240" />
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>
+          <a [routerLink]="[ '/book',item.id ]">
+            <button type="button" class="btn btn-info">Details</button>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+<div class="container">
+  <div class="col-12 row" >
+    <div class="col-2 my-3" *ngFor="let item of books">
+      <div id="pointer" [routerLink]="[ '/book', item.id]">
+        <img src="{{item.imageUrl}}"  class="img-responsive" alt="Responsive image"
+        height="240" />
+      </div>
+      <div>
+        <div>
+        </div>
+        <p><b>Title</b> {{item.name}}</p>
+        <p><b>Author</b> {{item.author}}</p>
+        <p><b>Price</b> {{item.price}}</p>
+        <p><b>In Stock</b> {{item.inStock}}</p>
+      </div>
+    </div>
+  </div>
+</div>

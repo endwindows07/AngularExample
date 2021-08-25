@@ -1,0 +1,26 @@
+<div class="container p-5" *ngIf="bookDetails != null">
+  <h4>รายละเอียดหนังสือ</h4>
+  <div class="col col-12 row">
+    <div class="col-4">
+      <img class="rounded"
+        [src]="bookDetails.imageUrl"
+        class="rounded float-left" height="500" alt="...">
+    </div>
+    <div class="col-8">
+      <h3>ID: {{bookDetails.id}}</h3>
+      <h3>Name: {{bookDetails.name}}</h3>
+      <div class="row">
+      <h3> Details: </h3>
+      <p> {{bookDetails.description}}</p>
+      </div>
+      <h3>Author: {{bookDetails.author}}</h3>
+      <h4>Prices:  {{bookDetails.price}}</h4>
+      <h4>discount:  {{bookDetails.discount}}</h4>
+      <h4>In stock:  {{bookDetails.inStock}}</h4>
+      <h4>Sale Count:  {{bookDetails.saleCount}}</h4>
+
+      <button type="button" class="btn btn-warning mx-1" (click)="onEdit()">Edit</button>
+      <button type="button" class="btn btn-danger mx-1" (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+</div>
