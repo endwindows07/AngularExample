@@ -20,6 +20,7 @@ export class BookListComponent implements OnInit {
       console.log(value)
     })
   }
+  public changeText = false;
 
   ngOnInit(): void {
   }

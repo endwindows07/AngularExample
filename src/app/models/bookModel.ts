@@ -10,4 +10,5 @@ export interface bookModel {
   inStock: number;
   saleCount: number;
   isActive: boolean;
+  isShow: boolean;
 }

@@ -26,12 +26,26 @@
     </tbody>
   </table>
 </div> -->
+
+
+
+
 <div class="container">
   <div class="col-12 row" >
     <div class="col-2 my-3" *ngFor="let item of books">
       <div id="pointer" [routerLink]="[ '/book', item.id]">
-        <img src="{{item.imageUrl}}"  class="img-responsive" alt="Responsive image"
-        height="240" />
+
+        <div (mouseover)="item.isShow=true" (mouseout)="item.isShow=false">
+          <span *ngIf="!item.isShow">
+            <img src="{{item.imageUrl}}"  class="img-responsive" alt="Responsive image"
+            height="240" />
+          </span>
+          <span *ngIf="item.isShow">
+            <img src="https://i.ibb.co/rFv11Mn/click.jpg?fbclid=IwAR2fizzs3h_iKVUGiViRKAUpAk3Km3LGPQgqGbRIiwhYrhrQyHUBU28iKSE"  class="img-responsive" alt="Responsive image"
+            height="240" />
+          </span>
+        </div>
+
       </div>
       <div>
         <div>
@@ -44,3 +58,5 @@
     </div>
   </div>
 </div>
+
+
