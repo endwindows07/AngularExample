@@ -3,11 +3,11 @@ import { bookModel } from 'src/app/models/bookModel';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 
 @Component({
-  selector: 'app-book-list',
-  templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   url: string = 'https://bowdotnetexample.azurewebsites.net'
   books?: bookModel[];

@@ -57,6 +57,7 @@ export class AddBookComponent implements OnInit {
     // Store form name as "file" with file data
     formData.append("file", this.imageFile, this.imageFile.name);
 
+    console.log(this.imageFile.name)
     var res = this.httpService.post(this.url, '/api/Book/UploadImage', '', formData)
     res.then(value => {
       this.imageUrl = value.data.imgUrl
@@ -66,20 +67,20 @@ export class AddBookComponent implements OnInit {
   }
 
 
-  onSubmit() {
-    console.log('pass')
+  public onSubmit() {
     if (this.bookForm.valid) {
 
       this.bookData = this.bookForm.value;
-      if(this.imageUrl == null) return
+      if(this.imageUrl != null) this.bookData.imageUrl = this.imageUrl;
 
-      this.bookData.imageUrl = this.imageUrl;
+
       var res = this.httpService.post(this.url, '/api/Book/AddBook', '', this.bookData)
       res.then(value => {
         console.log(value)
         this.router.navigate(['/book'])
       })
     }else{
+      console.log(this.bookForm)
       console.log(this.bookForm.errors)
     }
   }

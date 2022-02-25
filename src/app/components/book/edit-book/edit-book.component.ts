@@ -94,7 +94,7 @@ export class EditBookComponent implements OnInit {
 
       if( this.bookData  == null) return;
       this.bookData.imageUrl = this.imageUrl;
-      var res = this.httpService.post(this.url, '/api/Book/AddBook', '', this.bookData)
+      var res = this.httpService.put(this.url, '/api/Book/UpdateBook', '', this.bookData)
       res.then(value => {
         console.log(value)
         this.router.navigate(['/book'])

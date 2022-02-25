@@ -13,10 +13,12 @@ import { Test2Component } from './components/test2/test2.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Test3Component } from './components/test3/test3.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-import { BookListComponent } from './components/Book/book-list/book-list.component';
-import { BookDetailsComponent } from './components/Book/book-details/book-details.component';
+// import { BookListComponent } from './components/Book/book-list/book-list.component';
+// import { BookDetailsComponent } from './components/Book/book-details/book-details.component';
 import { AddBookComponent } from './components/book/add-book/add-book.component';
 import { EditBookComponent } from './components/book/edit-book/edit-book.component';
+import { ListComponent } from './components/book/list/list.component';
+import { DetailsComponent } from './components/book/details/details.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { EditBookComponent } from './components/book/edit-book/edit-book.compone
     Test2Component,
     Test3Component,
     NavbarComponent,
-    BookListComponent,
-    BookDetailsComponent,
+    // BookListComponent,
+    // BookDetailsComponent,
     AddBookComponent,
     EditBookComponent,
+    ListComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
